@@ -1,4 +1,8 @@
 <main class="mdl-layout__content">
     <div class="page-content" id="content">
-        <canvas class="compassCanvas" width="500" height="500" #compassCanvas></canvas>
+        <canvas class="compassCanvas" width="500" height="500" #compassCanvas id=compassCanvas></canvas>
     </div>
+    <div class=bearingSliderDiv>
+        <app-bearing-slider (bearingChanged)="updateDisplay($event)"></app-bearing-slider>
+    </div>
+    

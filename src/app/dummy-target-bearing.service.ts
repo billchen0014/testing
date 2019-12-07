@@ -7,15 +7,21 @@ import {Observable, of } from 'rxjs';
 export class DummyTargetBearingService {
 
   private bearing: number = 0;
+  private bearingObservable: Observable<number>;
 
   constructor() { }
 
   setBearing(bearingInput: number): void {
     this.bearing = bearingInput;
+    this.bearingObservable = of(bearingInput);
   }
 
   getBearing(){
     return this.bearing;
+  }
+
+  getBearingSubscribe(): Observable<number> {
+    return of(this.bearing);
   }
 
 }
