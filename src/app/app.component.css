@@ -28,6 +28,10 @@ h1 {
 
   .compass-card.mdl-card {
     width: 500px;
-    height: 600px;
   }
+  .slider-card.mdl-card {
+      padding: 0.5cm;
+  }
+
+  
 

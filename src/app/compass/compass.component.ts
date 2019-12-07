@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { DummyTargetBearingService } from '../dummy-target-bearing.service'
 
@@ -76,7 +77,6 @@ export class CompassComponent implements OnInit {
 
     this.drawCompassFace(context,radius, height);
     this.drawNeedle(context,targetBearing,0,radius,3,"red");
-
   }
 
 
@@ -93,16 +93,22 @@ export class CompassComponent implements OnInit {
   }
 
 
-  
-  constructor(private dummyTaretBearingService: DummyTargetBearingService) { }
+  bearingSubscription: Subscription;
+
+  constructor(private dummyTaretBearingService: DummyTargetBearingService) { 
+    //subscribe to the updates
+    this.bearingSubscription = this.dummyTaretBearingService.getBearingStream().subscribe(bearingInput => {
+      this.updateDisplay(bearingInput);
+    }
+
+    )
+  }
 
   ngOnInit() {
     this.resizeCanvas();
-    this.dummyTaretBearingService.getBearingSubscribe()
-    .subscribe(bearing => this.updateDisplay(bearing))
 
     var radius = this.canvasCompass.nativeElement.width / 2 * 0.85;
-    // this.updateDisplay();
+    this.updateDisplay(0);
     // console.log(this.dummyTaretBearingService.getBearing());
     // this.drawNeedle(this.canvasCompass.nativeElement.getContext("2d"),0,0,radius,3,"red");
   }
