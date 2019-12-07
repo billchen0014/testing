@@ -18,11 +18,16 @@ export class DummyTargetBearingService {
 
   constructor() {
 
-   }
+  }
+
+  getBearingStream(): Observable<any>{
+    return this.subject.asObservable();
+  }
 
 
   setBearing(bearingInput: number): void {
     this.bearing = bearingInput;
+    this.subject.next(bearingInput)
   }
 
   getBearing(){

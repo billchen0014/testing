@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { DummyTargetBearingService } from '../dummy-target-bearing.service'
 
@@ -92,8 +93,16 @@ export class CompassComponent implements OnInit {
   }
 
 
-  
-  constructor(private dummyTaretBearingService: DummyTargetBearingService) { }
+  bearingSubscription: Subscription;
+
+  constructor(private dummyTaretBearingService: DummyTargetBearingService) { 
+    //subscribe to the updates
+    this.bearingSubscription = this.dummyTaretBearingService.getBearingStream().subscribe(bearingInput => {
+      this.updateDisplay(bearingInput);
+    }
+
+    )
+  }
 
   ngOnInit() {
     this.resizeCanvas();

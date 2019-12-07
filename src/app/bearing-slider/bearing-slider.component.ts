@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Output } from '@angular/core';
 
 import { DummyTargetBearingService } from '../dummy-target-bearing.service';
-import { EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bearing-slider',
@@ -12,11 +10,6 @@ import { Observable } from 'rxjs';
 
 
 export class BearingSliderComponent implements OnInit {
-  @ViewChild('bearingSlider', {static: false})
-  bearingSlider: ElementRef<HTMLInputElement>;
-
-  @Output() bearingChanged: EventEmitter<number> = new EventEmitter();
-  @Output() bearingChangedTest: EventEmitter<number> = new EventEmitter(true)
 
   currentBearing: number = 0;
 
@@ -26,8 +19,6 @@ export class BearingSliderComponent implements OnInit {
   updateSlider(bearingSliderValue: number): void {
     this.currentBearing = bearingSliderValue;
     this.dummyTargetBearingService.setBearing(this.currentBearing);
-
-    this.bearingChanged.emit(this.currentBearing);
   }
 
 
