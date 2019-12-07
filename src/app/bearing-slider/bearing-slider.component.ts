@@ -16,9 +16,9 @@ export class BearingSliderComponent implements OnInit {
   bearingSlider: ElementRef<HTMLInputElement>;
 
   @Output() bearingChanged: EventEmitter<number> = new EventEmitter();
+  @Output() bearingChangedTest: EventEmitter<number> = new EventEmitter(true)
 
   currentBearing: number = 0;
-  public currentBearingObservable: Observable<number>;
 
   constructor(private dummyTargetBearingService: DummyTargetBearingService) {
    }
@@ -29,6 +29,7 @@ export class BearingSliderComponent implements OnInit {
 
     this.bearingChanged.emit(this.currentBearing);
   }
+
 
   ngOnInit() {
     console.log('bearing slider init')

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable, of } from 'rxjs';
+import {Observable, of, Observer, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,21 +7,27 @@ import {Observable, of } from 'rxjs';
 export class DummyTargetBearingService {
 
   private bearing: number = 0;
-  private bearingObservable: Observable<number>;
+  private subject = new Subject<any>();
 
-  constructor() { }
+  updateBearingSubscription = function (observer: Observer<any>, newBearing): void {
+    observer.next(newBearing);
+  }
+
+
+  private bearingObservable = new Observable((observer) => this.updateBearingSubscription(observer,2));
+
+  constructor() {
+
+   }
+
 
   setBearing(bearingInput: number): void {
     this.bearing = bearingInput;
-    this.bearingObservable = of(bearingInput);
   }
 
   getBearing(){
     return this.bearing;
   }
 
-  getBearingSubscribe(): Observable<number> {
-    return of(this.bearing);
-  }
 
 }
