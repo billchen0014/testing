@@ -10,7 +10,7 @@ export class DummyTargetBearingService {
   private subject = new Subject<any>();
 
   updateBearingSubscription = function (observer: Observer<any>, newBearing): void {
-    observer.next(newBearing);
+    observer.next(newBearing); //testing
   }
 
 
