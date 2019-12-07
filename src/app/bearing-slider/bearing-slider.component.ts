@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+import { DummyTargetBearingService } from '../dummy-target-bearing.service';
 
 @Component({
   selector: 'app-bearing-slider',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bearing-slider.component.css']
 })
 export class BearingSliderComponent implements OnInit {
+  @ViewChild('bearingSlider', {static: false})
+  bearingSlider: ElementRef<HTMLInputElement>;
 
-  constructor() { }
+  currentBearing: number = 0;
+
+  constructor(private dummyTargetBearingService: DummyTargetBearingService) { }
+
+  updateSlider(bearingSliderValue: number): void {
+    this.currentBearing = bearingSliderValue;
+    this.dummyTargetBearingService.setBearing(this.currentBearing);
+    console.log(this.currentBearing);
+  }
 
   ngOnInit() {
+    console.log('bearing slider init')
   }
 
 }

@@ -1,1 +1,10 @@
-<p>bearing-slider works!</p>
+<div class="slidecontainer">
+    <input type="range" min="0" max="359" value="50" class="slider" id="myRange" #bearingSlider (input)="updateSlider(bearingSlider.value)"> 
+</div>
+<div class="bearingText">
+        {{ this.currentBearing }}
+</div>
+
+
+
+
