@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
+import { DummyTargetBearingService } from '../dummy-target-bearing.service'
+
 @Component({
   selector: 'app-compass',
   templateUrl: './compass.component.html',
@@ -46,10 +48,11 @@ export class CompassComponent implements OnInit {
 
 
   }
-  constructor() { }
+  constructor(private dummyTaretBearingService: DummyTargetBearingService) { }
 
   ngOnInit() {
     this.updateDisplay();
+    console.log(this.dummyTaretBearingService.getBearing());
   }
 
   
