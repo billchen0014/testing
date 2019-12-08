@@ -6,32 +6,32 @@ import {Observable, of, Observer, Subject } from 'rxjs';
 })
 export class DummyTargetBearingService {
 
-  private bearing: number = 0;
-  private subject = new Subject<any>();
+  private targetBearing: number = 0;
+  private antennaBearing: number = 0;
+  private subject$ = new Subject<any>();
 
   updateBearingSubscription = function (observer: Observer<any>, newBearing): void {
     observer.next(newBearing); //testing
   }
 
 
-  private bearingObservable = new Observable((observer) => this.updateBearingSubscription(observer,2));
-
   constructor() {
 
   }
 
   getBearingStream(): Observable<any>{
-    return this.subject.asObservable();
+    return this.subject$.asObservable();
   }
 
 
-  setBearing(bearingInput: number): void {
-    this.bearing = bearingInput;
-    this.subject.next(bearingInput)
+  setTargetBearing(bearingInput: number): void {
+    this.targetBearing = bearingInput;
+    this.subject$.next([this.targetBearing,this.antennaBearing]);
   }
 
-  getBearing(){
-    return this.bearing;
+  setAntennaBearing(bearingInput: number): void {
+    this.antennaBearing = bearingInput;
+    this.subject$.next([this.targetBearing,this.antennaBearing]);
   }
 
 

@@ -19,20 +19,17 @@ export class BearingSliderComponent implements OnInit {
   
   updateTargetBearing(bearingSliderValue: number): void {
     this.currentTargetBearing = bearingSliderValue;
-    this.updateSlider(this.currentTargetBearing,this.currentAntennaBearing);
+    this.dummyTargetBearingService.setTargetBearing(bearingSliderValue);
   }
 
   updateAntennaBearing(bearingSliderValue: number): void {
     this.currentAntennaBearing = bearingSliderValue;
-    this.updateSlider(this.currentTargetBearing,this.currentAntennaBearing);
+    this.dummyTargetBearingService.setAntennaBearing(bearingSliderValue);
   }
 
 
 
 
-  updateSlider(target: number, antenna: number): void {
-    this.dummyTargetBearingService.setBearing(target);
-  }
 
 
   ngOnInit() {

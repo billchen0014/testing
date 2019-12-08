@@ -62,7 +62,7 @@ export class CompassComponent implements OnInit {
   }
   
 
-  updateDisplay(targetBearing): void {
+  updateDisplay(bearingArray): void {
     var compassCanvas = this.canvasCompass.nativeElement;
     var context = this.canvasCompass.nativeElement.getContext("2d");
     var radius = this.canvasCompass.nativeElement.width / 2;
@@ -76,7 +76,17 @@ export class CompassComponent implements OnInit {
     height = 0.8*height;
 
     this.drawCompassFace(context,radius, height);
-    this.drawNeedle(context,targetBearing,0,radius,3,"red");
+
+    //check if bearings match
+    if (bearingArray[0] == bearingArray[1]){
+      this.drawNeedle(context,bearingArray[0],0,radius,10,"red");
+      this.drawNeedle(context,bearingArray[1],0,radius,10,"green");
+    }
+    else {
+      this.drawNeedle(context,bearingArray[0],0,radius,3,"red");
+      this.drawNeedle(context,bearingArray[1],0,radius,3,"green");
+    }
+
   }
 
 
