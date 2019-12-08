@@ -11,14 +11,27 @@ import { DummyTargetBearingService } from '../dummy-target-bearing.service';
 
 export class BearingSliderComponent implements OnInit {
 
-  currentBearing: number = 0;
+  currentTargetBearing: number = 0;
+  currentAntennaBearing: number = 0;
 
   constructor(private dummyTargetBearingService: DummyTargetBearingService) {
-   }
+  }
+  
+  updateTargetBearing(bearingSliderValue: number): void {
+    this.currentTargetBearing = bearingSliderValue;
+    this.updateSlider(this.currentTargetBearing,this.currentAntennaBearing);
+  }
 
-  updateSlider(bearingSliderValue: number): void {
-    this.currentBearing = bearingSliderValue;
-    this.dummyTargetBearingService.setBearing(this.currentBearing);
+  updateAntennaBearing(bearingSliderValue: number): void {
+    this.currentAntennaBearing = bearingSliderValue;
+    this.updateSlider(this.currentTargetBearing,this.currentAntennaBearing);
+  }
+
+
+
+
+  updateSlider(target: number, antenna: number): void {
+    this.dummyTargetBearingService.setBearing(target);
   }
 
 
