@@ -19,7 +19,7 @@ gmapElement: any;
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    // this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     
   }
 
