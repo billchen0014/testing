@@ -3,27 +3,31 @@
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 <app-at-header></app-at-header>
 <div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--4-col">
+  <div class="mdl-cell mdl-cell--6-col">
       <div class="map-card mdl-card mdl-shadow--2dp">
         <h3 class="component-header">Map</h3>
         <app-maps></app-maps>
       </div>
   </div>
 
-  <div class="mdl-cell mdl-cell--4-col">
+  <div class="mdl-cell mdl-cell--6-col">
     <div class="compass-card mdl-card mdl-shadow--2dp">
       <h3 class="component-header">Antenna Tracker Orientation</h3>
       <app-compass></app-compass>
     </div>
   </div>
+  <div class="mdl-cell mdl-cell--4-col">
+    <div class="status-card mdl-card mdl-shadow--2dp">
+      <app-status></app-status>
+    </div>
+  </div>
 
-  <div class="mdl-cell mdl-cell--2-col">
+  <!-- for testing only  -->
+  <div class="mdl-cell mdl-cell--6-col">
     <div class="slider-card mdl-card mdl-shadow--2dp">
       <app-bearing-slider></app-bearing-slider>
     </div>
   </div>
 
-  <app-status></app-status>
-  
 </div>
 

@@ -1,6 +1,6 @@
 <h3>Target bearing</h3>
 <div class="slidecontainer">
-    <input type="range" min="0" max="359" value="50" class="slider" #targetBearingSlider (input)="updateTargetBearing(targetBearingSlider.value)"> 
+    <input type="range" min="0" max="359" value="0" class="slider" #targetBearingSlider (input)="updateTargetBearing(targetBearingSlider.value)"> 
 </div>
 <div class="bearingText">
         {{ this.currentTargetBearing }}
@@ -8,7 +8,7 @@
 
 <h3>Antenna bearing</h3>
 <div class="slidecontainer">
-    <input type="range" min="0" max="359" value="50" class="slider" #AntennaBearingSlider (input)="updateAntennaBearing(AntennaBearingSlider.value)"> 
+    <input type="range" min="0" max="359" value="0" class="slider" #AntennaBearingSlider (input)="updateAntennaBearing(AntennaBearingSlider.value)"> 
 </div>
 <div class="bearingText">
         {{ this.currentAntennaBearing }}
