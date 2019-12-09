@@ -138,9 +138,9 @@ export class CompassComponent implements OnInit {
 
   bearingSubscription: Subscription;
 
-  constructor(private dummyTaretBearingService: DummyTargetBearingService) { 
+  constructor(private dummyTargetBearingService: DummyTargetBearingService) { 
     //subscribe to the updates
-    this.bearingSubscription = this.dummyTaretBearingService.getBearingStream().subscribe(bearingInput => {
+    this.bearingSubscription = this.dummyTargetBearingService.getBearingStream().subscribe(bearingInput => {
       this.updateDisplay(bearingInput);
     }
 
