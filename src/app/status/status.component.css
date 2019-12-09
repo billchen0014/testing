@@ -1,0 +1,11 @@
+.statusTable {
+    text-align: center;
+}
+
+.error {
+    color: red;
+}
+
+.noError {
+    color: rgb(0, 255, 0);
+}

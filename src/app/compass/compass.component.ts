@@ -61,6 +61,34 @@ export class CompassComponent implements OnInit {
     //console.log(endPos)
   }
   
+  drawLetter(context:CanvasRenderingContext2D, radius, degAng, letter)
+{
+    var rotationRad = this.toRadians(degAng);
+
+    // Save transform
+    context.save();
+
+    // Text style.
+    context.fillStyle = "black";
+    context.font = radius * 0.15 + "px arial";
+    context.textBaseline = "middle";
+    context.textAlign = "center";
+
+    // Rotate so vertical translation will move on angle
+    context.rotate(rotationRad);
+
+    // Translate from centre to place letter 85% towards circle edge.
+    context.translate(0, -radius*0.85);
+
+    // Rotate the canvas
+    context.rotate(-rotationRad);
+
+    // Draw the text (letter).
+    context.fillText(letter, 0, 0);
+
+    // Restore transform (undo rotation/translation)
+    context.restore();
+}
 
   updateDisplay(bearingArray): void {
     var compassCanvas = this.canvasCompass.nativeElement;
@@ -75,7 +103,12 @@ export class CompassComponent implements OnInit {
     radius = 0.8*radius;
     height = 0.8*height;
 
+    //draw components
     this.drawCompassFace(context,radius, height);
+    this.drawLetter(context,radius,0,"N");
+    this.drawLetter(context,radius,90,"E");
+    this.drawLetter(context,radius,180,"S");
+    this.drawLetter(context,radius,270,"W");
 
     //check if bearings match
     if (bearingArray[0] == bearingArray[1]){

@@ -7,6 +7,7 @@ import { AtHeaderComponent } from './at-header/at-header.component';
 import { MapsComponent } from './maps/maps.component';
 import { CompassComponent } from './compass/compass.component';
 import { BearingSliderComponent } from './bearing-slider/bearing-slider.component';
+import { StatusComponent } from './status/status.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +15,7 @@ import { BearingSliderComponent } from './bearing-slider/bearing-slider.componen
     MapsComponent,
     CompassComponent,
     BearingSliderComponent,
+    StatusComponent,
   ],
   imports: [
     BrowserModule,

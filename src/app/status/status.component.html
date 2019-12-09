@@ -1,0 +1,36 @@
+<table class="statusTable mdl-js-data-table mdl-data-table mdl-shadow--2dp">
+    <thead>
+        <tr>
+            <th class="mdl-data-table__cell--non-numeric" width="50px">Parameter</th>
+            <th width="150px">Value</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">GPS status</td>
+            <td>3D Fix</td>
+            <td>Ok</td>
+        </tr>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">GPS Lat</td>
+            <td>37°57'25.1"S</td>
+            <td>Ok</td>
+        </tr>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">GPS Long</td>
+            <td>145°14'15.5"E</td>
+            <td>Ok</td>
+        </tr>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">Deviation</td>
+            <td>{{ this.deviation }}</td>
+            <td [class.error]="this.deviation > 5" [class.noError]="this.deviation < 6">Ok</td>
+        </tr>
+        <tr>
+            <td class="mdl-data-table__cell--non-numeric">Battery voltage</td>
+            <td>3.9V</td>
+            <td [class.noError]='true'>Ok</td>
+        </tr>
+    </tbody>
+</table>
