@@ -8,6 +8,7 @@ import { MapsComponent } from './maps/maps.component';
 import { CompassComponent } from './compass/compass.component';
 import { BearingSliderComponent } from './bearing-slider/bearing-slider.component';
 import { StatusComponent } from './status/status.component';
+import { StartStopComponent } from './start-stop/start-stop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { StatusComponent } from './status/status.component';
     CompassComponent,
     BearingSliderComponent,
     StatusComponent,
+    StartStopComponent,
   ],
   imports: [
     BrowserModule,

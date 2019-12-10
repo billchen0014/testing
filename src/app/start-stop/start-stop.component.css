@@ -1,0 +1,22 @@
+.button {
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    margin: 4px 4px;
+  }
+
+  .start {
+      background-color: green;
+  }
+
+  .stop {
+      background-color: red;
+  }
+
+  .pressed {
+    padding: 10px;
+  }
