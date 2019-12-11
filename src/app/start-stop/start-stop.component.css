@@ -10,6 +10,9 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     border-radius: 10%;
+    position: relative;
+    left: 20%;
+    top: 20px;
   }
 
   .button:hover {
@@ -26,4 +29,16 @@
 
   .pressed {
     padding: 10px;
+  }
+
+  .startedText {
+    text-align: center;
+    top: 70px;
+    color: seagreen;
+  }
+
+  .stoppedText {
+    text-align: center;
+    top: 70px;
+    color: red;
   }

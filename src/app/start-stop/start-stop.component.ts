@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DummyTargetBearingService } from '../dummy-target-bearing.service';
 
 @Component({
   selector: 'app-start-stop',
@@ -6,20 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start-stop.component.css']
 })
 export class StartStopComponent implements OnInit {
-  private started = false;
+  private started: string = "Stopped";
 
   startPressed(): void {
-    console.log('started');
-    this.started = true;
+    this.started = "Started";
+    this.DummyTargetBearingService.startTracker();
   }
 
   stopPressed(): void {
-    console.log('stopped');
-    this.started = false;
+    this.started = "Stopped";
+    this.DummyTargetBearingService.stopTracker();
   }
 
 
-  constructor() { }
+  constructor(private DummyTargetBearingService: DummyTargetBearingService) { }
 
   ngOnInit() {
   }

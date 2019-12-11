@@ -34,5 +34,13 @@ export class DummyTargetBearingService {
     this.subject$.next([this.targetBearing,this.antennaBearing]);
   }
 
+  startTracker(): void {
+    console.log('Antenna is now started');
+  }
+
+  stopTracker(): void {
+    console.log('Antenna is now stopped');
+  }
+
 
 }

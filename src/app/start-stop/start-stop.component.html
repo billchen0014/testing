@@ -1,2 +1,3 @@
-<button class="button start" (click)="startPressed()" [class.pressed]="this.started">Start</button>
-<button class="button stop" (click)="stopPressed()" [class.pressed]="!this.started">Stop</button>
+<button class="button start" (click)="startPressed()" [class.pressed]="this.started=='Started'">Start</button>
+<button class="button stop" (click)="stopPressed()" [class.pressed]="this.started=='Stopped'">Stop</button>
+<h3 [class.startedText]="this.started=='Started'" [class.stoppedText]="this.started=='Stopped'"> {{ this.started }}</h3>
